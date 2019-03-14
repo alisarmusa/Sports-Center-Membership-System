@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:view locale="#{language.locale}">
+    <h:head>
+        <style>
+            html {
+    height: 100%;
+    margin: 0;
+  }  
+div.container {
+    width: 100%;
+}
+
+header, footer {
+    padding: 1em;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    max-width: 300px;
+    margin: 0;
+    padding: 1em;
+}
+
+article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+.page-title {
+  max-width: 100%;
+  height: 10%;
+}
+
+.hero-title {
+  padding: 10px 10px 10px 10px;
+}
+
+.hero-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 10%;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.text-wraper {
+  float: right;
+  z-index: 700;
+  position: relative;
+  color: #FFFFFF;
+  width: 100%;
+  text-align: center;
+}
+</style>
+    </h:head>
+ 
+    <h:body style = "background: url(update.jpeg);background-repeat: no-repeat;background-color: black;background-size: cover;height: 100%">
+        
+        <p:tooltip/> 
+        <p:messages id="messages" showDetail="true" closable="true">
+        </p:messages>
+        
+        <div class="container">
+        <header>
+         <div class="page-title">
+                    <div class="hero-title">
+                        <div class="text-wraper">
+                        <h2>UPDATE MY INFORMATION</h2>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <nav>
+        
+        <h:form>
+
+            <p:panelGrid columns="1">
+                <p:commandButton action="#{systemController.checkCourseMembers()}" value="Check Course Members" style="width: 200px; height:70px"/>
+            </p:panelGrid>
+            <p:panelGrid columns="2">
+                <p:commandButton action="#{systemController.checkMySchedule()}" value="Check My Schedule" style="width: 200px; height:70px"/>
+            </p:panelGrid>
+            <p:panelGrid columns="3">
+                <p:commandButton action="#{systemController.updateTrainer()}" value="Update Trainer Information"  style="width: 200px; height:70px" />
+            </p:panelGrid>
+            <p:panelGrid columns="4">
+                <p:commandButton action="#{courseController.openCourse()}" value="Open Course" style="width: 200px; height:70px" />
+            </p:panelGrid>
+            <p:panelGrid columns="5">
+                <p:commandButton action="#{courseController.deleteCourse()}" value="Delete Course" style="width: 200px; height:70px"/> 
+            </p:panelGrid>
+            <p:panelGrid columns="6">
+                <p:commandButton action="#{courseController.updateCourse()}" value="Update Course" style="width: 200px; height:70px"/> 
+            </p:panelGrid>
+            <p:panelGrid columns="7">
+                <p:commandButton action="#{systemController.makeAnnouncementTrainer()}" value="Make An Announcement" style="width: 200px; height:70px" />
+            </p:panelGrid>
+            <p:panelGrid columns="8">
+                <p:commandButton action="#{systemController.loginDirect()}" value="Log Out" style="width: 200px; height:70px"/> 
+            </p:panelGrid>
+            <p:panelGrid columns="9">
+                <p:commandButton action="#{systemController.gymMainPage}" value="Return To GYM SOLDIERS Home Page" style="width: 200px; height:70px" ajax="false"/>
+            </p:panelGrid>
+                  
+        </h:form>    
+             <div class="page-title">
+                <div class="hero-title">
+                    <div class="text-wraper">
+                    <footer>Copyright @ SoftwareSoldiers</footer>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <article>
+   
+        <h:form>   
+             <center>
+                <p:panelGrid columns="2">
+                    <f:facet name="header">#{msg['uptra9']}</f:facet>
+                    <p:outputLabel value="#{msg['uptra10']}"/>
+                    <p:inputText id="id" required="true" label="id" size="19"
+                                     requiredMessage="Please enter your id."
+                                     value="#{personModel.id}">
+
+                          
+                              
+
+                        </p:inputText>
+                        <p:watermark for="id" value="Id *" />
+                        <p:message for="id" />
+                    <p:outputLabel value="#{msg['uptra11']}"/>
+                     <p:inputText id="username" required="true" label="username" size="19"
+                                     requiredMessage="Please enter your username."
+
+                                     value="#{personModel.username}">
+
+                            
+
+                        </p:inputText>
+                        <p:watermark for="username" value="Username *" />
+                        <p:message for="username" />
+                    <p:outputLabel value="#{msg['uptra12']}"/>
+                    <p:inputText id="password" required="true" label="password" size="19"
+                                     requiredMessage="Please enter your password."
+
+                                     value="#{personModel.password}">
+
+                           
+
+                        </p:inputText>
+                        <p:watermark for="password" value="Password *" />
+                        <p:message for="password" />
+                    <p:outputLabel value="#{msg['uptra13']}"/>
+                    <p:inputText id="name" required="true" label="name" size="19"
+                                     requiredMessage="Please enter your name."
+
+                                     value="#{personModel.name}">
+                             <f:validateRegex pattern="[a-zA-z]+([ '-][a-zA-Z]+)*" />
+                           
+                        </p:inputText>
+                        <p:watermark for="name" value="Name *" />
+                        <p:message for="name" />
+                    <p:outputLabel value="#{msg['uptra14']}"/>
+                    <p:inputText id="surname" required="true" label="surname" size="19"
+                                     requiredMessage="Please enter your surname."
+
+                                     value="#{personModel.surname}">
+
+                             <f:validateRegex pattern="[a-zA-z]+([ '-][a-zA-Z]+)*" />
+
+                        </p:inputText>
+                        <p:watermark for="surname" value="Surname *" />
+                        <p:message for="surname" />
+                    <p:outputLabel value="#{msg['uptra15']}"/>
+                    <p:inputText id="telNo" required="true" label="telNo" size="19"
+                                     requiredMessage="Please enter your tel no."
+
+                                     value="#{personModel.telNo}">
+
+                             <f:validateRegex pattern="^[+]?[0-9]+$" />
+
+                        </p:inputText>
+                        <p:watermark for="telNo" value="Tel No *" />
+                        <p:message for="telNo" />
+                    <p:outputLabel value="#{msg['uptra16']}"/>
+                    <p:inputText id="email" required="true" label="email" size="19"
+                                     requiredMessage="Please enter your email."
+                                     validatorMessage="Invalid email format"
+                                     value="#{personModel.mail}">
+
+                            <f:validateRegex
+                                pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+
+                        </p:inputText>
+                        <p:watermark for="email" value="Email Address *" />
+                        <p:message for="email" />
+                    <p:outputLabel value="#{msg['uptra17']}"/>
+                    <p:inputText id="birthday" required="true" label="birthday" size="19"
+                                     requiredMessage="Please enter your birthday."
+                                     value="#{personModel.birthday}">
+
+                          <f:validateRegex pattern="([0][1-9]||[1-2][0-9]||[3][0-1])/([0][1-9]||[1][0-2])/([1][9][0-9][0-9]||[2][0][0-1][0-8])" />
+
+                        </p:inputText>
+                        <p:watermark for="birthday" value="Birthday *" />
+                        <p:message for="birthday" />
+                    <p:outputLabel value="Question: "/>
+                    <p:inputText id="question" required="true" label="question" size="19"
+                                     requiredMessage="Please enter your question."
+                                     value="#{personModel.question}">
+
+                          <f:validateRegex pattern="[a-zA-z]+([ '-][a-zA-Z]+)*" />
+
+                        </p:inputText>
+                        <p:watermark for="question" value="Question *" />
+                        <p:message for="question" />
+
+                </p:panelGrid>  
+                <p:commandButton value="#{msg['uptra18']}"  action="#{personModel.updateTrainerModel()}" ajax="false"/>
+            </center>
+        </h:form>        
+    </article>
+        <footer>Copyright @; SoftwareSoldiers.com</footer>
+
+        </div>
+
+    </h:body>
+        </f:view>
+</html>

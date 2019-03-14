@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:view locale="#{language.locale}">
+    <h:head>
+        <title>#{msg['reg13']}</title>
+         <style>
+        html {
+    height: 100%;
+    margin: 0;
+}
+        </style>
+    </h:head>
+    <h:body style = "background: url(register.jpeg);background-repeat: no-repeat;background-color: black;background-size: cover;height: 100%">
+        <div><h1><center>#{msg['reg5']}</center></h1></div>
+        <p:tooltip/> 
+        <p:messages id="messages" showDetail="true" closable="true">
+        </p:messages>
+
+        <h:form>
+            <p:panelGrid columns="2">
+                <f:facet name="header">#{msg['reg6']}</f:facet>
+                <h:outputLabel value="#{msg['reg7']}"/>
+                <p:inputText id="id" required="true" label="id" size="19"
+                                     requiredMessage="Please enter your id."
+                                     value="#{personModel.id}">
+
+                          
+                              
+
+                        </p:inputText>
+                        <p:watermark for="id" value="Id *" />
+                        <p:message for="id" />
+                <h:outputLabel value="#{msg['reg8']}"/>
+                <p:inputText id="txtcreditCardOwner" required="true" label="creditCardOwner" size="19"
+                                     requiredMessage="Please enter your card owner."
+                                     value="#{personModel.txtcreditCardOwner}">
+
+                          <f:validateRegex pattern="[a-zA-z]+([ '-][a-zA-Z]+)*" />
+                              
+
+                        </p:inputText>
+                        <p:watermark for="txtcreditCardOwner" value="Credit Card Owner *" />
+                        <p:message for="txtcreditCardOwner" />
+                <h:outputLabel value="#{msg['reg9']}"/>
+                <p:inputText id="txtcreditCardNumber" required="true" label="creditCardNumber" size="19"
+                                     requiredMessage="Please enter your card number."
+                                     value="#{personModel.txtcreditCardNumber}">
+
+                          
+                              
+
+                        </p:inputText>
+                        <p:watermark for="txtcreditCardNumber" value="Credit Card Number *" />
+                        <p:message for="txtcreditCardNumber" />
+                <h:outputLabel value="#{msg['reg10']}"/>
+                <p:inputText id="cvc" required="true" label="cvc" size="19"
+                                     requiredMessage="Please enter your cvc."
+                                     value="#{personModel.cvc}">
+
+                          
+                              
+
+                        </p:inputText>
+                        <p:watermark for="cvc" value="cvc *" />
+                        <p:message for="cvc" />
+                <h:outputLabel value="#{msg['reg11']}"/>
+                <p:inputText id="validityDate" required="true" label="validityDate" size="19"
+                                     requiredMessage="Please enter your validity Date."
+                                     value="#{personModel.validityDate}">
+
+                          
+                 <f:validateRegex pattern="([0][1-9]||[1-2][0-9]||[3][0-1])/([0][1-9]||[1][0-2])/([2][0][2][0-9])" />
+
+                        </p:inputText>
+                        <p:watermark for="validityDate" value="Validity Date *" />
+                        <p:message for="validityDate" />
+
+
+            </p:panelGrid>
+            <p:commandButton value="#{msg['reg3']}"  action="#{personModel.memberSendCreditCard()}" ajax="false"/>
+            <p:commandButton value="#{msg['reg12']}"  action="#{systemController.gymMainPage}" ajax="false"/>
+        </h:form>
+    </h:body>
+        </f:view>
+</html>

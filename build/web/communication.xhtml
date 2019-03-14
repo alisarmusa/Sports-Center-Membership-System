@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:view locale="#{language.locale}">
+<h:head>
+    <style>
+    html {
+    height: 100%;
+    margin: 0;
+}
+</style>
+	<title>#{msg['comm']}</title>
+        
+</h:head>
+<h:body style = "background: url(communication.jpeg);background-repeat: no-repeat;background-color: black;background-size: cover;height: 100%">
+    
+        <p:tooltip/> 
+	<h:form>
+          
+        <center>
+        <h1>#{msg['comm1']}</h1>
+        <p>#{msg['comm2']}</p>
+        <p>#{msg['comm3']}</p>
+        <p> <a href="https://goo.gl/maps/2tp5fAfeGFU2">#{msg['comm4']}</a> </p>
+        <p><img src="map.jpeg" alt="Adress"/></p>
+        
+
+        <p:panelGrid>
+        <p:commandButton value="#{msg['comm5']}"  action="#{systemController.gymMainPage}" ajax="false"/>
+        </p:panelGrid>
+                
+        </center>
+                
+	</h:form>
+</h:body>
+        </f:view>
+</html>

@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+    http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+    version="2.0">
+         <application>
+     	<locale-config>
+            <default-locale>en</default-locale>
+            <supported-locale>tr</supported-locale>
+        </locale-config>
+		<resource-bundle>
+			<base-name>resources.a</base-name>
+			<var>msg</var>
+		</resource-bundle>
+     </application>
+     <navigation-rule>
+         <from-view-id>cancellationOfMembership.xhtml</from-view-id>
+        <navigation-case>
+			<from-action>#{systemController.gymMainPage}</from-action>
+			<from-outcome>gym</from-outcome>
+			<to-view-id>gymSoldiersMainPage.xhtml</to-view-id>
+		</navigation-case>
+         
+         
+         
+         
+     </navigation-rule>
+     
+     <navigation-rule>
+         <from-view-id>trainerMainPage.xhtml</from-view-id>
+        <navigation-case>
+			<from-action>#{systemController.checkMySchedule}</from-action>
+			<from-outcome>checkMySchedule</from-outcome>
+			<to-view-id>checkMySchedule.xhtml</to-view-id>
+	</navigation-case>
+        <navigation-case>
+			<from-action>#{courseController.openCourse}</from-action>
+			<from-outcome>openCourse</from-outcome>
+			<to-view-id>openCourse.xhtml</to-view-id>
+	</navigation-case>
+        <navigation-case>
+			<from-action>#{courseController.deleteCourse}</from-action>
+			<from-outcome>deleteCourse</from-outcome>
+			<to-view-id>deleteCourse.xhtml</to-view-id>
+	</navigation-case>
+        <navigation-case>
+			<from-action>#{courseController.updateCourse}</from-action>
+			<from-outcome>updateCourse</from-outcome>
+			<to-view-id>updateCourse.xhtml</to-view-id>
+        </navigation-case>
+          <navigation-case>
+			<from-action>#{systemController.checkCourseMembers}</from-action>
+			<from-outcome>checkCourseMembers</from-outcome>
+			<to-view-id>checkCourseMembers.xhtml</to-view-id>
+		</navigation-case>
+     </navigation-rule>
+     
+     <navigation-rule>
+         <from-view-id>memberMainPage.xhtml</from-view-id>
+        <navigation-case>
+			<from-action>#{systemController.checkMyCourses}</from-action>
+			<from-outcome>checkMyCourses</from-outcome>
+			<to-view-id>checkMyCourses.xhtml</to-view-id>
+	</navigation-case>
+        <navigation-case>
+			<from-action>#{systemController.takeCourse}</from-action>
+			<from-outcome>systemCourse</from-outcome>
+			<to-view-id>takeCourses.xhtml</to-view-id>
+	</navigation-case>
+        <navigation-case>
+			<from-action>#{systemController.dropCourses}</from-action>
+			<from-outcome>dropCourses</from-outcome>
+			<to-view-id>dropCourses.xhtml</to-view-id>
+	</navigation-case>
+        <navigation-case>
+			<from-action>#{courseController.updateInfo}</from-action>
+			<from-outcome>updateInfo</from-outcome>
+			<to-view-id>updateInfo.xhtml</to-view-id>
+        </navigation-case>
+          <navigation-case>
+			<from-action>#{systemController.makeAPayment}</from-action>
+			<from-outcome>makeAPayment</from-outcome>
+			<to-view-id>makeAPayment.xhtml</to-view-id>
+		</navigation-case>
+                <navigation-case>
+			<from-action>#{systemController.showAnnouncement}</from-action>
+			<from-outcome>showAnnouncement</from-outcome>
+			<to-view-id>showAnnouncements.xhtml</to-view-id>
+		</navigation-case>
+                <navigation-case>
+			<from-action>#{systemController.cancellationOfMembership}</from-action>
+			<from-outcome>cancellationOfMembership</from-outcome>
+			<to-view-id>cancellationOfMembership.xhtml</to-view-id>
+		</navigation-case>
+     </navigation-rule>
+     
+     
+     
+     
+	<navigation-rule>
+		<from-view-id>index.xhtml</from-view-id>
+                <navigation-case>
+			<from-action>#{personModel.checkValidUser}</from-action>
+			<from-outcome>systemAdmin</from-outcome>
+			<to-view-id>systemAdminMainPage.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{personModel.checkValidUser}</from-action>
+			<from-outcome>member</from-outcome>
+			<to-view-id>memberMainPage.xhtml</to-view-id>
+		</navigation-case>
+                <navigation-case>
+			<from-action>#{personModel.checkValidUser}</from-action>
+			<from-outcome>manager</from-outcome>
+			<to-view-id>managerMainPage.xhtml</to-view-id>
+		</navigation-case>
+                <navigation-case>
+			<from-action>#{personModel.checkValidUser}</from-action>
+			<from-outcome>trainer</from-outcome>
+			<to-view-id>trainerMainPage.xhtml</to-view-id>
+		</navigation-case>
+                
+		<navigation-case>
+			<from-action>#{personModel.checkValidUser}</from-action>
+			<from-outcome>unsuccess</from-outcome>
+			<to-view-id>index.xhtml</to-view-id>
+		</navigation-case>
+                <navigation-case>
+			<from-action>#{systemController.showAnnouncement}</from-action>
+			<from-outcome>showAnnouncement</from-outcome>
+			<to-view-id>showAnnouncements.xhtml</to-view-id>
+		</navigation-case>
+                
+                <navigation-case>
+			<from-action>#{personController.logout}</from-action>
+			<from-outcome>index</from-outcome>
+			<to-view-id>index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+        <navigation-rule>
+		<from-view-id>gymSoldiersMainPage.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{systemController.loginDirect}</from-action>
+			<from-outcome>index</from-outcome>
+			<to-view-id>index.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{systemController.signUpDirect}</from-action>
+			<from-outcome>register</from-outcome>
+			<to-view-id>register.xhtml</to-view-id>
+		</navigation-case>
+                
+                <navigation-case>
+			<from-action>#{systemController.communicationDirect}</from-action>
+			<from-outcome>communication</from-outcome>
+			<to-view-id>communication.xhtml</to-view-id>
+		</navigation-case>
+        </navigation-rule>
+        
+      <navigation-rule>
+         <navigation-case>
+			<from-action>#{systemController.gymMainPage}</from-action>
+			<from-outcome>gym</from-outcome>
+			<to-view-id>gymSoldiersMainPage.xhtml</to-view-id>
+	</navigation-case>
+      </navigation-rule>
+                
+        
+                
+      
+                
+                 <navigation-rule>
+                     <navigation-case>
+			<from-action>#{systemController.returnGym}</from-action>
+			<from-outcome>returnGym</from-outcome>
+			<to-view-id>gymSoldiersMainPage.xhtml</to-view-id>
+                    </navigation-case>
+        
+	</navigation-rule>
+        
+        
+        <navigation-rule>
+                        <from-view-id>health1.xhtml</from-view-id>
+            <navigation-case>
+			<from-action>#{systemController.health1}</from-action>
+			<from-outcome>health1</from-outcome>
+			<to-view-id>health1.xhtml</to-view-id>
+            </navigation-case>   
+        </navigation-rule>
+	 <navigation-rule>
+                        <from-view-id>health2.xhtml</from-view-id>
+            <navigation-case>
+			<from-action>#{systemController.health2}</from-action>
+			<from-outcome>health2</from-outcome>
+			<to-view-id>health2Result.xhtml</to-view-id>
+            </navigation-case>   
+        </navigation-rule>
+         <navigation-rule>
+                        <from-view-id>health3.xhtml</from-view-id>
+            <navigation-case>
+			<from-action>#{systemController.health3}</from-action>
+			<from-outcome>health3</from-outcome>
+			<to-view-id>health3Result.xhtml</to-view-id>
+            </navigation-case>   
+        </navigation-rule>
+        
+        
+        <navigation-rule>
+                <from-view-id>managerMainPage.xhtml</from-view-id>
+                     <navigation-case>
+			<from-action>#{systemController.editCourseSchedule}</from-action>
+			<from-outcome>editCourseSchedule</from-outcome>
+			<to-view-id>editCourseSchedule.xhtml</to-view-id>
+		</navigation-case>
+                <navigation-case>
+			<from-action>#{systemController.paymentInfo}</from-action>
+			<from-outcome>paymentInfo</from-outcome>
+			<to-view-id>paymentInfo.xhtml</to-view-id>
+		</navigation-case>
+                 <navigation-case>
+			<from-action>#{systemController.addNewTrainer}</from-action>
+			<from-outcome>addNewTrainer</from-outcome>
+			<to-view-id>addNewTrainer.xhtml</to-view-id>
+		</navigation-case>
+                <navigation-case>
+			<from-action>#{systemController.updateManager</from-action>
+			<from-outcome>updateManager</from-outcome>
+			<to-view-id>updateManager.xhtml</to-view-id>
+		</navigation-case>
+                <navigation-case>
+			<from-action>#{systemController.deleteTrainer}</from-action>
+			<from-outcome>deleteTrainer</from-outcome>
+			<to-view-id>deleteTrainer.xhtml</to-view-id>
+		</navigation-case>
+                <navigation-case>
+			<from-action>#{systemController.makeAnnouncementTrainer}</from-action>
+			<from-outcome>makeAnnouncementTrainer</from-outcome>
+			<to-view-id>makeAnnouncementTrainer.xhtml</to-view-id>
+		</navigation-case>
+                                <navigation-case>
+			<from-action>#{systemController.makeAnnouncementManager}</from-action>
+			<from-outcome>makeAnnouncementManager</from-outcome>
+			<to-view-id>makeAnnouncementManager.xhtml</to-view-id>
+		</navigation-case>
+                <navigation-case>
+			<from-action>#{systemController.checkTrainerInfo}</from-action>
+			<from-outcome>checkTrainerInfo</from-outcome>
+			<to-view-id>checkTrainerInfo.xhtml</to-view-id>
+		</navigation-case>
+                 <navigation-case>
+			<from-action>#{systemController.logout}</from-action>
+			<from-outcome>index</from-outcome>
+			<to-view-id>index.xhtml</to-view-id>
+		</navigation-case>
+            
+        </navigation-rule>
+        
+        
+         <navigation-rule>
+                <from-view-id>systemAdminMainPage.xhtml</from-view-id>
+                     <navigation-case>
+			<from-action>#{systemController.seeWholeSystem}</from-action>
+			<from-outcome>seeWholeSystem</from-outcome>
+			<to-view-id>seeWholeSystem.xhtml</to-view-id>
+		</navigation-case>
+                 <navigation-case>
+			<from-action>#{systemController.addNewManager}</from-action>
+			<from-outcome>addNewManager</from-outcome>
+			<to-view-id>addNewManager.xhtml</to-view-id>
+		</navigation-case>
+                <navigation-case>
+			<from-action>#{systemController.deleteManager}</from-action>
+			<from-outcome>deleteManager</from-outcome>
+			<to-view-id>deleteManager.xhtml</to-view-id>
+		</navigation-case>
+                 <navigation-case>
+			<from-action>#{systemController.logout}</from-action>
+			<from-outcome>index</from-outcome>
+			<to-view-id>index.xhtml</to-view-id>
+		</navigation-case>
+            
+        </navigation-rule>
+        
+        
+	
+</faces-config>

@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view locale="#{language.locale}">
+   
+   <h:body style = "background: url(image.jpeg);background-repeat: no-repeat;;background-color: black;background-size: cover;height: 100%">
+                <h:form>
+            <h:commandButton action="#{language.changeLanguage('')}"
+                             value="English" image="https://cdn2.iconfinder.com/data/icons/flags/flags/32/united-kingdom-great-britain.png" />
+            <h:outputText value=" " />
+            <h:commandButton action="#{language.changeLanguage('tr')}"
+                             value="Turkish" image="http://icons.iconarchive.com/icons/icondrawer/flags/32/Turkey-icon.png" />
+        </h:form>
+        <div><h1><center>&nbsp;</center></h1></div>
+        <h:form> 
+            <p:panelGrid columns="3">
+                <p:commandButton action="#{systemController.loginDirect()}" value="#{msg['gymmain4']}" style="width: 250px; height:100px"/> 
+            </p:panelGrid>
+            <p:panelGrid columns="2">
+                <p:commandButton action="#{systemController.signUpDirect()}" value="#{msg['gymmain3']}" style="width: 250px; height:100px"/>
+            </p:panelGrid>
+            <p:panelGrid columns="1">
+                <p:commandButton action="#{systemController.communicationDirect()}" value="#{msg['gymmain2']}" style="width: 250px; height:100px"/>
+            </p:panelGrid>
+            <p:panelGrid columns="4">
+                <p:commandButton action="#{systemController.gymMainPage}" value="#{msg['gymmain5']}" style="width: 250px; height:100px" ajax="false" />
+            </p:panelGrid>
+
+
+        </h:form>
+    </h:body>
+    </f:view>
+</html>

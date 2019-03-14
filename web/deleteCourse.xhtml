@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:view locale="#{language.locale}">
+    <h:head>
+        <style>
+            html {
+    height: 100%;
+    margin: 0;
+}   
+div.container {
+    width: 100%;
+}
+
+header, footer {
+    padding: 1em;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    max-width: 300px;
+    margin: 0;
+    padding: 1em;
+}
+
+article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+.page-title {
+  max-width: 100%;
+  height: 10%;
+}
+
+.hero-title {
+  padding: 10px 10px 10px 10px;
+}
+
+.hero-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 10%;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.text-wraper {
+  float: right;
+  z-index: 700;
+  position: relative;
+  color: #FFFFFF;
+  width: 100%;
+  text-align: center;
+}
+</style>
+    </h:head>
+ 
+    <h:body style = "background: url(trainer.jpeg);background-repeat: no-repeat;background-color: black;background-size: cover;height: 100%">
+        
+        
+        
+        <div class="container">
+        <header>
+        <div class="page-title">
+                    <div class="hero-title">
+                        <div class="text-wraper">
+                        <h2>DELETE COURSE</h2>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <nav>
+        
+        <h:form>
+
+            <p:panelGrid columns="1">
+                <p:commandButton action="#{systemController.checkCourseMembers()}" value="Check Course Members" style="width: 200px; height:70px"/>
+            </p:panelGrid>
+            <p:panelGrid columns="2">
+                <p:commandButton action="#{systemController.checkMySchedule()}" value="Check My Schedule" style="width: 200px; height:70px"/>
+            </p:panelGrid>
+            <p:panelGrid columns="3">
+                <p:commandButton action="#{systemController.updateTrainer()}" value="Update Trainer Information"  style="width: 200px; height:70px" />
+            </p:panelGrid>
+            <p:panelGrid columns="4">
+                <p:commandButton action="#{courseController.openCourse()}" value="Open Course" style="width: 200px; height:70px" />
+            </p:panelGrid>
+            <p:panelGrid columns="5">
+                <p:commandButton action="#{courseController.deleteCourse()}" value="Delete Course" style="width: 200px; height:70px"/> 
+            </p:panelGrid>
+            <p:panelGrid columns="6">
+                <p:commandButton action="#{courseController.updateCourse()}" value="Update Course" style="width: 200px; height:70px"/> 
+            </p:panelGrid>
+            <p:panelGrid columns="7">
+                <p:commandButton action="#{systemController.makeAnnouncementTrainer()}" value="Make An Announcement" style="width: 200px; height:70px" />
+            </p:panelGrid>
+            <p:panelGrid columns="8">
+                <p:commandButton action="#{systemController.loginDirect()}" value="Log Out" style="width: 200px; height:70px"/> 
+            </p:panelGrid>
+            <p:panelGrid columns="9">
+                <p:commandButton action="#{systemController.gymMainPage}" value="Return To GYM SOLDIERS Home Page" style="width: 200px; height:70px" ajax="false"/>
+            </p:panelGrid>
+                  
+        </h:form>    
+             <div class="page-title">
+                <div class="hero-title">
+                    <div class="text-wraper">
+                    <footer>Copyright @ SoftwareSoldiers</footer>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <article>
+   
+        <h:form>   
+            <center>
+                <p:panelGrid columns="2">
+                    <f:facet name="header">Delete Course</f:facet>
+                    <p:outputLabel value="courseName"/>
+                   <p:inputText id="courseName" required="true" label="courseName" size="19"
+                                     requiredMessage="Please enter your course name."
+                                     value="#{courseModel.courseName}">
+
+                        </p:inputText>
+                        <p:watermark for="courseName" value="Course Name *" />
+                        <p:message for="courseName" />
+
+                </p:panelGrid>  
+                <p:commandButton value="Delete"  action="#{courseModel.deleteCourseModel()}" ajax="false"/>
+            </center> 
+        </h:form>        
+    </article>
+        <footer>Copyright @; SoftwareSoldiers.com</footer>
+
+        </div>
+
+    </h:body>
+        </f:view>
+</html>

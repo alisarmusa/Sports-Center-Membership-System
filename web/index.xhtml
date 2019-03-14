@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:view locale="#{language.locale}">
+    <h:head>
+        <title>GYM SOLDIERS LOGIN PAGE</title>
+        <style>
+           
+
+            #login-panel{
+                width:500px;
+                margin:150px auto; 
+            }
+            #login-panel table{
+                border:1px solid #DDD;
+                padding:50px;
+            }
+            :focus{
+                outline: none;
+            }
+            #login-panel input[type='text'],#login-panel input[type='password']{
+                border: 1px solid #DDD;
+                padding: 3px;
+                font-size: 20px
+            }
+            #login-panel input[type='submit']{
+                border: 1px solid #DDD;
+                width: 100%;
+                padding: 3px;
+                background-color: green;
+                border-radius: 3px;
+                font-size: 20px;
+                color: black;
+                background-color: #ececce; 
+            }
+            #login-panel input[type='submit']:active{
+                background-color: activeborder;
+            }     
+        </style>
+    </h:head>
+    <body style = "background: url(login.jpeg);background-repeat: no-repeat;background-size: cover;background-color: black;height: 100%" >
+        <p:tooltip/> 
+        <p:messages id="messages" showDetail="true" closable="true">
+        </p:messages>
+        <h:form>
+            <h:commandButton action="#{language.changeLanguage('')}"
+                             value="English" image="https://cdn2.iconfinder.com/data/icons/flags/flags/32/united-kingdom-great-britain.png" />
+            <h:outputText value=" " />
+            <h:commandButton action="#{language.changeLanguage('tr')}"
+                             value="Turkish" image="http://icons.iconarchive.com/icons/icondrawer/flags/32/Turkey-icon.png" />
+        </h:form>
+
+
+
+        <h1 align="center">&nbsp;</h1>
+        <div id="login-panel">
+            <h:form>
+                <table style="background-color: gray">
+                    <tr style="color:white">
+                        <td><h3> #{msg['user']} : </h3></td>
+                        <td>
+                            <p:inputText id="username"  value="#{personModel.username}"/>
+                            <h:message for="username"></h:message>
+                        </td>
+                    </tr>
+                    <tr style="color:white">
+                        <td><h3>#{msg['pass']} : </h3></td>
+                        <td>
+                            <p:password id="feedback" value="#{personModel.password}" feedback="true" />
+
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+
+                            <center><h:commandButton action="#{personModel.checkValidUser}" value="#{msg['index']}"  /></center>
+
+
+                        </td>
+
+
+
+                    </tr>
+                    
+                    
+                    
+                    
+                    
+                    
+                </table>
+                
+                <center>
+                <p:panelGrid columns="4">
+                     <p:commandButton     action="#{systemController.forgetPassword}" value="Şifremi Unuttum" style="width: 350px; height:50px" />
+                </p:panelGrid>
+                <p:panelGrid columns="5">
+                    <p:commandButton action="#{systemController.gymMainPage}" value="#{msg['index2']}" style="width: 350px; height:50px" ajax="false" />
+                </p:panelGrid>
+                </center>
+                
+                
+            </h:form>  
+        </div>
+    </body>
+    </f:view>
+</html>
+
